@@ -1,0 +1,15 @@
+
+POST http://localhost:4004/dev-challenge/Tests(ID=82bcc76c-b887-4968-ae8a-343f8689f9de,IsActiveEntity=true)/DevChallengeService.assignQuestionsToTest 
+Content-Type: application/json 
+
+{"questionsCount":5}
+####
+
+Get http://localhost:4004/dev-challenge/Tests(ID=82bcc76c-b887-4968-ae8a-343f8689f9de,IsActiveEntity=true)?$expand=questions
+###
+
+
+POST http://localhost:4004/dev-challenge/Tests(ID=82bcc76c-b887-4968-ae8a-343f8689f9de,IsActiveEntity=true)/DevChallengeService.assignQuestionsToTest
+Content-Type: application/json 
+
+{"questionsCount":0}
