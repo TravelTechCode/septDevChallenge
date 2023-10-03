@@ -14,6 +14,7 @@ class DevChallengeService extends cds.ApplicationService {
         this.on("assignQuestionsToTest", "Tests", async (req) => {
             const { questionsCount } = req.data;
             const [Test, IsActiveEntity] = req.params;
+            const target = req.target;
             //  if (test.ID === '82bcc76c-b887-4968-ae8a-343f8689f9de'){
             if (questionsCount <= 0) {
                 //  return req.error(403, "the minimum number of questions is 1");
@@ -55,12 +56,19 @@ class DevChallengeService extends cds.ApplicationService {
                         });
                     }
 
-                    const endResult = SELECT.from(Tests, t => {
+                    const endResult = await SELECT.from(Tests, t => {
                         t`.*`, t.questions(q => {
                             q.text
                             q.ID
                         })
                     }).where(Test);
+                    const endRes = await SELECT.one.from(req.subject, t=>{
+                        t`.*`, t.questions(q => {
+                            q.text
+                            q.ID
+                        }) 
+                    });
+                    req.reply(endRes);
                     //  return endResult;
 
                     if (unlinkedQuestions.length < questionsCount) {
