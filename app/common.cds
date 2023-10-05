@@ -5,5 +5,13 @@ annotate dc.Tests with {
     description @title:'Description';
     createdBy @title: 'Created By';
     createdAt @title:'Created At';
-}
+};
+
+annotate dc.Questions with {
+    text @title: 'Question Text'
+};
+
+annotate dc.Answers with {
+    text @title: 'Answer Text'
+};
 

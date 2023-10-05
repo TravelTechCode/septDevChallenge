@@ -44,7 +44,7 @@
         }
     },
     "sap.ui5": {
-        "flexEnabled": true,
+        "flexEnabled": false,
         "dependencies": {
             "minUI5Version": "1.118.1",
             "libs": {
@@ -140,10 +140,20 @@
                                     "actions": {
                                         "handleCustomActions": {
                                             "press": "fullstackdevchallenge.ext.handleCustomActions.handleCustomActions.addQuestions",
-                                            "visible": true,
+                                            "visible": false,
                                             "enabled": true,
                                             "requiresSelection": false,
-                                            "text": "Add Questions"
+                                            "text": "Assign Questions to Test"
+                                        },
+                                        "addquestions1": {
+                                            "press": "fullstackdevchallenge.ext.handleCustomActions.handleCustomActions.addquestions1",
+                                            "visible": true,
+                                            "enabled": true,
+                                            "text": "Assign Questions to Test",
+                                            "position": {
+                                                "placement": "Before",
+                                                "anchor": "handleCustomActions"
+                                            }
                                         }
                                     }
                                 }
@@ -166,7 +176,11 @@
         },
         "extends": {
             "extensions": {
-                "sap.ui.controllerExtensions": {}
+                "sap.ui.controllerExtensions": {
+                    "sap.fe.templates.ObjectPage.ObjectPageController#fullstackdevchallenge::TestsObjectPage": {
+                        "controllerName": "fullstackdevchallenge.ext.controller.TestsObject"
+                    }
+                }
             }
         }
     },
