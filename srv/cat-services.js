@@ -69,16 +69,15 @@ class DevChallengeService extends cds.ApplicationService {
                         }) 
                     });
                     req.reply(endRes);
-                    //  return endResult;
 
                     if (unlinkedQuestions.length < questionsCount) {
                         return req.warn({
                             message: `${questionsCount} question(s) successfully added to the test. Add more questions and try again`,
                         });
                     } else {
-                        return {
+                        return req.info( {
                             message: `${questionsCount} question(s) successfully added to the test`,
-                        }
+                        });
                     }
                 }
             }

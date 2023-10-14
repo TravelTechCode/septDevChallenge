@@ -37,7 +37,12 @@ annotate DevChallengeService.Tests with @(UI: {
         $Type : 'UI.ReferenceFacet',
         Label : 'Test Details',
         Target: '@UI.FieldGroup#Main',
-    }],
+    },
+        {
+            $Type : 'UI.ReferenceFacet',
+            Label : '{i18n>Questions}',
+            Target: 'questions/@UI.LineItem',
+        }],
 
     FieldGroup #Main: {
         $Type: 'UI.FieldGroupType',
@@ -49,3 +54,16 @@ annotate DevChallengeService.Tests with @(UI: {
 
     },
 });
+
+
+annotate DevChallengeService.Questions with @(UI: {LineItem: [
+    {
+        $Type: 'UI.DataField',
+        Value: text
+    },
+    {
+        $Type: 'UI.DataField',
+        Value: answer.text
+    }
+], });
+

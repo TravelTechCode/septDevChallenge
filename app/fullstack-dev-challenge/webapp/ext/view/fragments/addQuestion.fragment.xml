@@ -1,0 +1,15 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core" xmlns="sap.m" xmlns:l="sap.ui.layout" height="100%"
+core:require="{
+      Integer: 'sap/ui/model/type/Integer'
+   }">
+<Dialog id="addQuestionDialog" title="Assign Questions to Test" draggable="true" afterClose = "afterClose" >
+    <l:VerticalLayout class = "sapUiContentPadding" width="100%" >
+    <Label text="{title}" labelFor="questionsCount"/>
+    <Input type="Number" required="true" liveChange="activateSubmit" id ="questionsCount"  width= "100%" placeholder ="Number of Questions"> </Input>
+    </l:VerticalLayout>
+    <buttons>
+        <Button type="Reject" text="Close" press=".onCancel"/>
+        <Button type="Accept" id ="submitButton" text="Submit"  enabled= "false" press=".onSubmitDialog" binding="{DevChallengeService.assignQuestionsToTest(...)}"/>
+    </buttons>
+</Dialog>
+</core:FragmentDefinition>
